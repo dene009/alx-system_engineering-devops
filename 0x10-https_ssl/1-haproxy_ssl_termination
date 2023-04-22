@@ -51,19 +51,19 @@ frontend https
 
 backend www-backend
         redirect scheme https if !{ ssl_fc }
-        server 142297-web-01 35.175.63.165:80 check
-        server 142297-web-02 18.209.225.230:80 check
+        server 150043-web-01 35.175.63.165:80 check
+        server 150043-web-01 18.209.225.230:80 check
 
 backend letsencrypt-backend
         server letsencrypt 127.0.0.1:54321
 
-#--beta-scribbles.tech-params-begin--
-backend beta-scribbles.tech-backend
+#--esidene.tech-params-begin--
+backend esidene.tech-backend
         balance roundrobin
-        server 142297-web-01 35.175.63.165:80 check
-        server 142297-web-02 18.209.225.230:80 check
+        server 150043-web-01 35.175.63.165:80 check
+        server 150043-web-02 18.209.225.230:80 check
 frontend beta-scribbles.tech-frontend
         bind *:80
         mode http
-        default_backend beta-scribbles.tech-backend
-#--beta-scribbles.tech-params-end--                
+        default_backend esidene.tech-backend
+#--esidene.tech-params-end--                
