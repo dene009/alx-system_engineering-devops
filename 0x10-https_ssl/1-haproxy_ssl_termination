@@ -45,14 +45,14 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 
 frontend https
-    bind *:443 ssl crt /etc/haproxy/certs/www.staark.tech.pem
+    bind *:443 ssl crt /etc/haproxy/certs/www.esidene.tech.pem
     mode http
     default_backend www-backend
 
 backend www-backend
         redirect scheme https if !{ ssl_fc }
-        server 150043-web-01 35.175.63.165:80 check
-        server 150043-web-01 18.209.225.230:80 check
+        server 150043-web-01 34.229.66.84:80 check
+        server 150043-web-01 3.89.160.99:80 check
 
 backend letsencrypt-backend
         server letsencrypt 127.0.0.1:54321
@@ -60,9 +60,9 @@ backend letsencrypt-backend
 #--esidene.tech-params-begin--
 backend esidene.tech-backend
         balance roundrobin
-        server 150043-web-01 35.175.63.165:80 check
-        server 150043-web-02 18.209.225.230:80 check
-frontend beta-scribbles.tech-frontend
+        server 150043-web-01 34.229.66.84:80 check
+        server 150043-web-02 3.89.160.99:80 check
+frontend beta-esidene.tech-frontend
         bind *:80
         mode http
         default_backend esidene.tech-backend
