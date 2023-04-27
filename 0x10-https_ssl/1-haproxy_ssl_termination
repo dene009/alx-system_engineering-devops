@@ -38,7 +38,7 @@ defaults
         timeout server  50000
         errorfile 400 /etc/haproxy/errors/400.http
         errorfile 403 /etc/haproxy/errors/403.http
-        errorfile 408 /etc/haproxy/errors/408.httip
+        errorfile 408 /etc/haproxy/errors/408.http
         errorfile 500 /etc/haproxy/errors/500.http
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
@@ -52,18 +52,18 @@ frontend https
 backend www-backend
         redirect scheme https if !{ ssl_fc }
         server 150043-web-01 34.229.66.84:80 check
-        server 150043-web-01 3.89.160.99:80 check
+        server 150043-web-02 3.89.160.99:80 check
 
 backend letsencrypt-backend
         server letsencrypt 127.0.0.1:54321
 
-#--esidene.tech-params-begin--
-backend esidene.tech-backend
+#--beta-scribbles.tech-params-begin--
+backend beta-scribbles.tech-backend
         balance roundrobin
         server 150043-web-01 34.229.66.84:80 check
         server 150043-web-02 3.89.160.99:80 check
-frontend beta-esidene.tech-frontend
+frontend beta-scribbles.tech-frontend
         bind *:80
         mode http
-        default_backend esidene.tech-backend
-#--esidene.tech-params-end--                
+        default_backend beta-scribbles.tech-backend
+#--beta-scribbles.tech-params-end--
