@@ -57,13 +57,3 @@ backend www-backend
 backend letsencrypt-backend
         server letsencrypt 127.0.0.1:54321
 
-#--beta-scribbles.tech-params-begin--
-backend beta-scribbles.tech-backend
-        balance roundrobin
-        server 150043-web-01 34.229.66.84:80 check
-        server 150043-web-02 3.89.160.99:80 check
-frontend beta-scribbles.tech-frontend
-        bind *:80
-        mode http
-        default_backend beta-scribbles.tech-backend
-#--beta-scribbles.tech-params-end--
