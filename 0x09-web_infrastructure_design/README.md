@@ -9,4 +9,5 @@ This project is a collection of web infrastructure designs that could be impleme
 + Simple web stack - 
 + Distributed web infrastructure 
 + Secured and monitored web infrastrucure 
-+ Scaled up web infrastructure 
++ Scaled up web infrastructure
+@dene009 
